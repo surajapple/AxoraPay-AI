@@ -1,0 +1,282 @@
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  password  String
+  name      String
+  role      String   @default("SUPPORT_AGENT") // ADMIN, SUPPORT_AGENT, CUSTOMER
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Customer {
+  id            String    @id @default(uuid())
+  name          String
+  email         String    @unique
+  phone         String
+  kycStatus     String    @default("VERIFIED") // VERIFIED, PENDING, REJECTED
+  accountStatus String    @default("ACTIVE") // ACTIVE, FROZEN, SUSPENDED
+  riskScore     Int       @default(0)
+  walletBalance Float     @default(0)
+  currency      String    @default("INR")
+  
+  transactions  Transaction[]
+  cases         Case[]
+  refunds       Refund[]
+  disputes      Dispute[]
+  escalations   Escalation[]
+  notifications Notification[]
+  
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+model Merchant {
+  id        String   @id @default(uuid())
+  name      String
+  category  String
+  status    String   @default("ACTIVE")
+  
+  transactions Transaction[]
+  
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Transaction {
+  id            String   @id @default(uuid())
+  customerId    String
+  merchantId    String?
+  amount        Float
+  currency      String   @default("INR")
+  type          String   // DEBIT, CREDIT
+  status        String   // SUCCESS, FAILED, PENDING
+  debitStatus   String   @default("NOT_DEBITED") // DEBITED, NOT_DEBITED
+  refundStatus  String   @default("NOT_INITIATED") // NOT_INITIATED, INITIATED, COMPLETED, FAILED
+  paymentMethod String   @default("UPI")
+  orderId       String?
+  description   String?
+  failureReason String?
+  metadata      String   @default("{}") // JSON string
+  
+  customer      Customer @relation(fields: [customerId], references: [id])
+  merchant      Merchant? @relation(fields: [merchantId], references: [id])
+  refunds       Refund[]
+  disputes      Dispute[]
+  cases         Case[]
+  
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model Case {
+  id               String   @id @default(uuid())
+  customerId       String
+  transactionId    String?
+  issueType        String
+  priority         String   @default("MEDIUM") // LOW, MEDIUM, HIGH, CRITICAL
+  status           String   @default("OPEN") // OPEN, INVESTIGATING, RESOLVED, ESCALATED, FAILED
+  title            String
+  description      String
+  aiConfidence     Float    @default(0)
+  resolution       String?
+  refundAmount     Float?
+  policyDecision   String?
+  aiExplanation    String?  // JSON string
+  assignedAgentId  String?
+  escalationReason String?
+  
+  customer         Customer     @relation(fields: [customerId], references: [id])
+  transaction      Transaction? @relation(fields: [transactionId], references: [id])
+  
+  agentExecutions  AgentExecution[]
+  escalations      Escalation[]
+  auditLogs        AuditLog[]
+  messages         CaseMessage[]
+  
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+  resolvedAt       DateTime?
+}
+
+model CaseMessage {
+  id        String   @id @default(uuid())
+  caseId    String
+  role      String   // user, assistant
+  content   String
+  metadata  String   @default("{}") // JSON string for tool calls, case updates, refund details
+  
+  case      Case     @relation(fields: [caseId], references: [id])
+  
+  createdAt DateTime @default(now())
+}
+
+model Refund {
+  id             String   @id @default(uuid())
+  transactionId  String
+  customerId     String
+  amount         Float
+  status         String   @default("INITIATED") // INITIATED, VERIFIED, COMPLETED, FAILED
+  reason         String?
+  policyDecision String?
+  initiatedBy    String   @default("AI_AGENT")
+  
+  transaction    Transaction @relation(fields: [transactionId], references: [id])
+  customer       Customer    @relation(fields: [customerId], references: [id])
+  
+  verifiedAt     DateTime?
+  completedAt    DateTime?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+}
+
+model Dispute {
+  id            String   @id @default(uuid())
+  transactionId String
+  customerId    String
+  type          String
+  status        String   @default("OPEN")
+  description   String?
+  evidence      String   @default("[]") // JSON string array
+  resolution    String?
+  assignedTo    String?
+  
+  transaction   Transaction @relation(fields: [transactionId], references: [id])
+  customer      Customer    @relation(fields: [customerId], references: [id])
+  
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model AgentExecution {
+  id        String   @id @default(uuid())
+  caseId    String
+  status    String   @default("PENDING") // PENDING, RUNNING, SUCCESS, FAILED
+  
+  case      Case     @relation(fields: [caseId], references: [id])
+  steps     AgentStep[]
+  
+  startedAt DateTime @default(now())
+  endedAt   DateTime?
+}
+
+model AgentStep {
+  id               String   @id @default(uuid())
+  agentExecutionId String
+  type             String   // THINKING, TOOL_CALL, POLICY_CHECK, EXECUTING, VERIFYING, COMPLETED, FAILED, HUMAN_REVIEW
+  title            String
+  description      String
+  data             String   @default("{}") // JSON string for tool inputs, policy results, etc
+  duration         Int?
+  
+  agentExecution   AgentExecution @relation(fields: [agentExecutionId], references: [id])
+  
+  createdAt        DateTime @default(now())
+}
+
+model ToolExecution {
+  id          String   @id @default(uuid())
+  toolName    String
+  input       String   // JSON string
+  output      String?  // JSON string
+  status      String   @default("SUCCESS") // SUCCESS, FAILED
+  duration    Int?
+  
+  createdAt   DateTime @default(now())
+}
+
+model Policy {
+  id          String   @id @default(uuid())
+  name        String
+  description String
+  conditions  String   @default("[]") // JSON array of condition strings
+  action      String
+  enabled     Boolean  @default(true)
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model PolicyDecision {
+  id          String   @id @default(uuid())
+  policyName  String
+  decision    String   // ALLOW, DENY, HUMAN_REVIEW
+  reason      String
+  context     String   @default("{}") // JSON string
+  
+  createdAt   DateTime @default(now())
+}
+
+model Escalation {
+  id          String   @id @default(uuid())
+  caseId      String
+  customerId  String
+  reason      String
+  priority    String   @default("HIGH")
+  status      String   @default("PENDING") // PENDING, RESOLVED, REJECTED
+  assignedTo  String?
+  notes       String?
+  resolution  String?
+  actionTaken String?
+  
+  case        Case     @relation(fields: [caseId], references: [id])
+  customer    Customer @relation(fields: [customerId], references: [id])
+  
+  resolvedAt  DateTime?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model AuditLog {
+  id          String   @id @default(uuid())
+  caseId      String?
+  customerId  String?
+  action      String
+  actor       String   @default("AI_AGENT")
+  actorType   String   @default("SYSTEM") // SYSTEM, CUSTOMER, SUPPORT_AGENT
+  details     String   @default("{}") // JSON string
+  toolName    String?
+  status      String   @default("SUCCESS")
+  ipAddress   String?
+  
+  case        Case?    @relation(fields: [caseId], references: [id])
+  
+  createdAt   DateTime @default(now())
+}
+
+model Notification {
+  id          String   @id @default(uuid())
+  customerId  String
+  caseId      String?
+  channel     String   @default("APP")
+  message     String
+  status      String   @default("SENT") // SENT, READ
+  
+  customer    Customer @relation(fields: [customerId], references: [id])
+  
+  createdAt   DateTime @default(now())
+}
+
+model AnalyticsEvent {
+  id          String   @id @default(uuid())
+  eventType   String
+  metrics     String   @default("{}") // JSON string
+  
+  createdAt   DateTime @default(now())
+}
+
+model SystemSetting {
+  id          String   @id
+  value       String   // JSON string
+  description String?
+  
+  updatedAt   DateTime @updatedAt
+}

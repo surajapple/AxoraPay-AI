@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AxoraPay — Autonomous Customer Resolution Teammate</title>
+  <meta name="description" content="Midnight Fintech System Architecture for AxoraPay - Autonomous Customer Resolution Teammate for Paytm AI Hackathon Track T3.">
+  
+  <!-- Inter & SFMono Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-theme">
+
+  <!-- Faint Engineering Grid -->
+  <div class="bg-grid-glow"></div>
+
+  <!-- Header & Navigation -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="brand">
+        <div class="logo-icon"><i class="fa-solid fa-diagram-project"></i></div>
+        <div class="brand-text">
+          <h1>Resolve<span class="highlight">AI</span></h1>
+          <span class="tagline">Don’t just answer. <span class="brand-resolve-tag">Resolve.</span></span>
+        </div>
+      </div>
+
+      <div class="header-badges">
+        <span class="badge badge-paytm"><i class="fa-solid fa-bolt"></i> PAYTM AI HACKATHON • TRACK T3</span>
+        <span class="badge badge-status"><span class="pulse-dot"></span> ARCHITECTURE SPEC v2.5</span>
+      </div>
+
+      <div class="header-controls">
+        <button id="btn-trigger-surge" class="btn-primary-sm"><i class="fa-solid fa-bolt"></i> Test System Load</button>
+      </div>
+    </div>
+
+    <!-- Navigation Bar - Smooth Scroll Anchors -->
+    <nav class="nav-tabs">
+      <a href="#sec-topology" class="nav-tab active"><i class="fa-solid fa-network-wired"></i> 1. System Architecture Diagram</a>
+      <a href="#sec-hero-journey" class="nav-tab"><i class="fa-solid fa-play"></i> 2. Hero Journey Simulator</a>
+      <a href="#sec-closed-loop" class="nav-tab"><i class="fa-solid fa-rotate-left"></i> 3. Closed-Loop Paradigm</a>
+      <a href="#sec-impact" class="nav-tab"><i class="fa-solid fa-chart-line"></i> 4. ROI & Metrics</a>
+      <a href="#sec-governance" class="nav-tab"><i class="fa-solid fa-shield-halved"></i> 5. Governance & Safety</a>
+      <a href="#sec-roadmap" class="nav-tab"><i class="fa-solid fa-diagram-project"></i> 6. MVP & Scale Horizon</a>
+    </nav>
+  </header>
+
+  <!-- Single Page Main Content Container -->
+  <main class="main-container">
+
+    <!-- 1. TECHNICAL SYSTEM ARCHITECTURE DIAGRAM SECTION -->
+    <section id="sec-topology" class="section-block">
+      
+      <div class="section-header-box">
+        <div class="title-group">
+          <h2>1. Technical System Architecture Diagram</h2>
+          <p>Production pipeline distinguishing LLM reasoning from deterministic enterprise execution, policy authority, and verification.</p>
+        </div>
+      </div>
+
+      <!-- Architectural Core Motto Banner -->
+      <div class="motto-banner-bar">
+        <span class="motto-step"><i class="fa-solid fa-brain"></i> LLM REASONS</span>
+        <i class="fa-solid fa-arrow-right motto-arrow"></i>
+        <span class="motto-step"><i class="fa-solid fa-database"></i> SYSTEMS PROVIDE TRUTH</span>
+        <i class="fa-solid fa-arrow-right motto-arrow"></i>
+        <span class="motto-step"><i class="fa-solid fa-gavel"></i> POLICIES AUTHORIZE</span>
+        <i class="fa-solid fa-arrow-right motto-arrow"></i>
+        <span class="motto-step"><i class="fa-solid fa-gears"></i> TOOLS ACT</span>
+        <i class="fa-solid fa-arrow-right motto-arrow"></i>
+        <span class="motto-step motto-success"><i class="fa-solid fa-shield-check"></i> VERIFICATION CONFIRMS</span>
+      </div>
+
+      <!-- Engineering Document Canvas Wrapper -->
+      <div class="arch-document-card">
+        <div class="doc-header">
+          <div class="doc-title-group">
+            <span class="doc-badge">ENGINEERING SYSTEM DESIGN</span>
+            <h3>AxoraPay End-to-End Autonomous Resolution Architecture</h3>
+          </div>
+          <div class="doc-meta mono">
+            <span>SPEC: PAYTM-T3-2026</span>
+            <span>AUTH: OAUTH2 / JWT</span>
+            <span>STATE: POSTGRESQL + REDIS</span>
+          </div>
+        </div>
+
+        <!-- System Pipeline Grid (4 Technical Columns) -->
+        <div class="arch-pipeline-grid">
+          
+          <!-- COLUMN 1: INGRESS, IDENTITY & CASE STATE -->
+          <div class="arch-col">
+            <div class="col-header"><span class="col-num">01</span> INGRESS & IDENTITY LAYER</div>
+            
+            <!-- Component 1.1: Customer UI -->
+            <div class="comp-box node-interactive" data-node="customer">
+              <div class="comp-tag">FRONTEND LAYER</div>
+              <h4>Customer / Chat UI</h4>
+              <div class="tech-pill mono">React / Next.js</div>
+              <ul class="comp-list">
+                <li>Web / Mobile In-App Chat</li>
+                <li>Authenticated Session Context</li>
+                <li>Customer Message Ingress</li>
+                <li>Case ID Assignment</li>
+              </ul>
+            </div>
+
+            <div class="flow-connector"><i class="fa-solid fa-arrow-down"></i> <span class="mono">REST / HTTPS</span></div>
+
+            <!-- Component 1.2: API & Identity Gateway -->
+            <div class="comp-box node-interactive" data-node="api_gateway">
+              <div class="comp-tag">API GATEWAY</div>
+              <h4>API + Identity Service</h4>
+              <div class="tech-pill mono">Python + FastAPI • OAuth 2.0 / JWT</div>
+              <ul class="comp-list">
+                <li>Request Validation & Rate Limiting</li>
+                <li>JWT Session Handling & Auth Context</li>
+                <li>Case Creation & Request Routing</li>
+              </ul>
+              <div class="rule-callout warning-callout">
+                <i class="fa-solid fa-lock"></i> <b>Rule:</b> LLM does NOT determine user identity. Auth ID comes from trusted app session.
+              </div>
+            </div>
+
+            <div class="flow-connector"><i class="fa-solid fa-arrow-down"></i> <span class="mono">Persist Case State</span></div>
+
+            <!-- Component 1.3: Structured Case Manager -->
+            <div class="comp-box node-interactive" data-node="case_manager">
+              <div class="comp-tag">STATE MANAGEMENT</div>
+              <h4>Case & Context Manager</h4>
+              <div class="tech-pill mono">PostgreSQL + Redis Cache</div>
+              <div class="schema-code-block mono">
+                <strong>Structured Case State:</strong><br>
+                • Case ID & Customer ID<br>
+                • Issue Type & Transaction ID<br>
+                • Retrieved Evidence Matrix<br>
+                • Actions & Policy Decisions<br>
+                • Resolution & Immutable Audit
+              </div>
+              <div class="rule-callout">
+                <b>Note:</b> Structured state is primary source of truth (not chat history).
+              </div>
+            </div>
+          </div>
+
+          <!-- COLUMN 2: REASONING & TOOL REGISTRY -->
+          <div class="arch-col">
+            <div class="col-header"><span class="col-num">02</span> AI REASONING & TOOL LAYER</div>
+
+            <!-- Component 2.1: AxoraPay Agent Orchestrator -->
+            <div class="comp-box comp-primary node-interactive" data-node="ai_brain">
+              <div class="comp-tag tag-ai">CENTRAL INTELLIGENCE</div>
+              <h4>AxoraPay Agent Orchestrator</h4>
+              <div class="tech-pill mono">Python + LLM API + LangGraph</div>
+              
+              <!-- State Loop -->
+              <div class="internal-loop-box">
+                <span class="loop-title">Agent State Machine Loop:</span>
+                <div class="loop-steps mono">Observe → Reason → Select Tool → Receive Result → Reason Again</div>
+              </div>
+
+              <ul class="comp-list">
+                <li>Intent Classification & Entity Extraction</li>
+                <li>Investigation Planning & Tool Selection</li>
+                <li>Reasoning over Retrieved Evidence</li>
+                <li>Next-Action Planning & Response Generation</li>
+                <li>Escalation Decision Logic</li>
+              </ul>
+
+              <div class="rule-callout highlight-callout">
+                <i class="fa-solid fa-shield-halved"></i> <b>LLM = REASONING, NOT AUTHORIZATION</b><br>
+                LLM never directly accesses DBs or executes financial ops.
+              </div>
+            </div>
+
+            <div class="flow-connector"><i class="fa-solid fa-arrow-down"></i> <span class="mono">Function Calls</span></div>
+
+            <!-- Component 2.2: Controlled Tool Registry -->
+            <div class="comp-box node-interactive" data-node="action_tools">
+              <div class="comp-tag">CONTROLLED APIS</div>
+              <h4>Tool / Function Calling Layer</h4>
+              <div class="tech-pill mono">FastAPI Tool Service</div>
+              <div class="tool-registry-box mono">
+                <span>get_transaction(txn_id)</span>
+                <span>verify_transaction_access(cust_id, txn_id)</span>
+                <span>get_payment_status(txn_id)</span>
+                <span>get_refund_status(txn_id)</span>
+                <span>check_refund_eligibility(txn_id)</span>
+                <span>initiate_refund(txn_id, reason)</span>
+                <span>verify_refund(refund_id)</span>
+                <span>create_human_escalation(case_id)</span>
+              </div>
+              <div class="rule-callout">
+                Typed parameters • Schema validation • Permissions • Idempotency
+              </div>
+            </div>
+          </div>
+
+          <!-- COLUMN 3: TRUSTED SYSTEMS & POLICY ENGINE -->
+          <div class="arch-col">
+            <div class="col-header"><span class="col-num">03</span> AUTHORITATIVE SYSTEMS & POLICY</div>
+
+            <!-- Component 3.1: Trusted Enterprise Systems -->
+            <div class="comp-box node-interactive" data-node="trusted_systems">
+              <div class="comp-tag tag-system">GROUND TRUTH</div>
+              <h4>Trusted Enterprise Services</h4>
+              <div class="tech-pill mono">PostgreSQL Microservices</div>
+              <div class="services-mini-grid">
+                <div class="s-card">
+                  <b>Transaction Service</b>
+                  <span>Txn ID, Amount, Debit/Payment/Merchant status</span>
+                </div>
+                <div class="s-card">
+                  <b>Payment Service</b>
+                  <span>Payment state, attempts, failure reasons</span>
+                </div>
+                <div class="s-card">
+                  <b>Refund Service</b>
+                  <span>Refund status, eligibility, execution</span>
+                </div>
+                <div class="s-card">
+                  <b>Customer Service</b>
+                  <span>Profile, Account context, limits</span>
+                </div>
+                <div class="s-card">
+                  <b>Merchant Service</b>
+                  <span>Merchant ID & settlement status</span>
+                </div>
+              </div>
+              <div class="rule-callout highlight-callout-system">
+                <i class="fa-solid fa-database"></i> <b>SYSTEMS = TRUTH</b> (Authoritative Source)
+              </div>
+            </div>
+
+            <div class="flow-connector"><i class="fa-solid fa-arrow-down"></i> <span class="mono">Evaluate Evidence</span></div>
+
+            <!-- Component 3.2: Deterministic Policy Engine -->
+            <div class="comp-box comp-policy node-interactive" data-node="policy_gate">
+              <div class="comp-tag tag-policy">SECURITY AUTHORITY</div>
+              <h4>Policy & Risk Engine</h4>
+              <div class="tech-pill mono">Deterministic Python Rules Engine</div>
+              <div class="policy-flow-box mono">
+                Customer owns transaction?<br>
+                ↓<br>
+                Refund eligible & not already issued?<br>
+                ↓<br>
+                Amount within limit & Fraud check clear?
+              </div>
+              <div class="policy-outputs">
+                <span class="out-chip out-allow">ALLOW</span>
+                <span class="out-chip out-deny">DENY</span>
+                <span class="out-chip out-escalate">ESCALATE</span>
+              </div>
+              <div class="rule-callout warning-callout">
+                <i class="fa-solid fa-gavel"></i> <b>POLICY = AUTHORITY:</b> LLM recommends action, but Policy Engine makes authorization decision.
+              </div>
+            </div>
+          </div>
+
+          <!-- COLUMN 4: ACTION GATEWAY, VERIFICATION & ESCALATION -->
+          <div class="arch-col">
+            <div class="col-header"><span class="col-num">04</span> GATEWAY, VERIFICATION & ESCALATION</div>
+
+            <!-- Component 4.1: Action Gateway -->
+            <div class="comp-box node-interactive" data-node="action_gateway">
+              <div class="comp-tag tag-action">SECURITY BOUNDARY</div>
+              <h4>Action Gateway</h4>
+              <div class="tech-pill mono">FastAPI + PostgreSQL + Redis</div>
+              <div class="execution-pipeline mono">
+                AI Proposes: initiate_refund(TXN456)<br>
+                ↓<br>
+                Policy Engine: ALLOW<br>
+                ↓<br>
+                Action Gateway: VALIDATE → AUTHORIZE → EXECUTE<br>
+                ↓<br>
+                Refund Service Execution
+              </div>
+              <ul class="comp-list">
+                <li>Authorization enforcement & Parameter validation</li>
+                <li>Idempotency keys & Rate limiting</li>
+                <li>Immutable Audit Logging & S2S Auth</li>
+              </ul>
+              <div class="rule-callout">
+                <i class="fa-solid fa-bolt"></i> <b>TOOLS = ACTION</b>
+              </div>
+            </div>
+
+            <div class="flow-connector"><i class="fa-solid fa-arrow-down"></i> <span class="mono">Execute & Verify</span></div>
+
+            <!-- Component 4.2: Verification Layer -->
+            <div class="comp-box node-interactive" data-node="verification_layer">
+              <div class="comp-tag tag-verification">SAFETY ASSURANCE</div>
+              <h4>Verification Layer</h4>
+              <div class="tech-pill mono">FastAPI + Event/Status Polling</div>
+              <div class="verification-flow mono">
+                Action Executed → Re-read Transaction/Refund State → Expected State Reached?<br>
+                • YES → Complete Resolution<br>
+                • NO → Retry / Escalate
+              </div>
+              <div class="rule-callout highlight-callout-verify">
+                <i class="fa-solid fa-shield-check"></i> <b>VERIFICATION = SAFETY:</b> AI never claims success based only on tool call; must verify resulting backend state first.
+              </div>
+            </div>
+
+            <div class="flow-connector"><i class="fa-solid fa-arrow-down"></i> <span class="mono">Outcome Routing</span></div>
+
+            <!-- Component 4.3: Resolution / Human Escalation -->
+            <div class="comp-split-box">
+              <div class="outcome-card outcome-resolved">
+                <i class="fa-solid fa-circle-check"></i>
+                <div>
+                  <h5>Verified Resolution</h5>
+                  <p>Issue closed with audit trail.</p>
+                </div>
+              </div>
+
+              <div class="outcome-card outcome-escalated node-interactive" data-node="human_escalation">
+                <i class="fa-solid fa-user-headset"></i>
+                <div>
+                  <h5>Human Escalation</h5>
+                  <p>Pushes complete structured case context packet to human agent.</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Tech Stack Panel at Bottom of Diagram -->
+        <div class="tech-stack-panel">
+          <div class="stack-panel-title">
+            <i class="fa-solid fa-layer-group"></i> PRODUCTION TECHNOLOGY STACK
+          </div>
+          
+          <div class="stack-grid">
+            <div class="stack-item"><span class="stack-lbl">Frontend:</span> <span class="stack-val mono">React / Next.js</span></div>
+            <div class="stack-item"><span class="stack-lbl">Backend:</span> <span class="stack-val mono">Python + FastAPI</span></div>
+            <div class="stack-item"><span class="stack-lbl">AI Core:</span> <span class="stack-val mono">LLM API + Tool Calling</span></div>
+            <div class="stack-item"><span class="stack-lbl">Orchestration:</span> <span class="stack-val mono">LangGraph</span></div>
+            <div class="stack-item"><span class="stack-lbl">Database:</span> <span class="stack-val mono">PostgreSQL</span></div>
+            <div class="stack-item"><span class="stack-lbl">Cache & Idempotency:</span> <span class="stack-val mono">Redis</span></div>
+            <div class="stack-item"><span class="stack-lbl">Auth & Identity:</span> <span class="stack-val mono">OAuth 2.0 / JWT</span></div>
+            <div class="stack-item"><span class="stack-lbl">APIs:</span> <span class="stack-val mono">REST / JSON</span></div>
+            <div class="stack-item"><span class="stack-lbl">Policy Engine:</span> <span class="stack-val mono">Deterministic Python Rules</span></div>
+            <div class="stack-item"><span class="stack-lbl">Observability:</span> <span class="stack-val mono">OpenTelemetry + Audit Logs</span></div>
+            <div class="stack-item"><span class="stack-lbl">Deployment:</span> <span class="stack-val mono">Docker + Kubernetes</span></div>
+          </div>
+
+          <div class="prototype-disclaimer mono">
+            <i class="fa-solid fa-circle-info"></i> <b>Hackathon Prototype Note:</b> Enterprise services are mocked/simulated APIs — no claim of access to Paytm production systems.
+          </div>
+        </div>
+
+        <!-- Node Details Drawer -->
+        <div id="inspector-drawer" class="inspector-drawer hidden">
+          <button id="close-drawer" class="btn-close"><i class="fa-solid fa-xmark"></i></button>
+          <div id="drawer-body"></div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- 2. HERO JOURNEY SIMULATOR SECTION -->
+    <section id="sec-hero-journey" class="section-block">
+      <div class="section-header-box">
+        <div class="title-group">
+          <h2>2. Hero Journey Simulator: ₹12,000 Autonomous Refund</h2>
+          <p>Step-by-step resolution of a payment debit issue in under 30 seconds.</p>
+        </div>
+        
+        <!-- Simulation Controls -->
+        <div class="sim-controls">
+          <button id="sim-btn-prev" class="sim-btn"><i class="fa-solid fa-backward-step"></i> Prev</button>
+          <button id="sim-btn-play" class="sim-btn sim-btn-main"><i class="fa-solid fa-play"></i> Play Case</button>
+          <button id="sim-btn-next" class="sim-btn">Next <i class="fa-solid fa-forward-step"></i></button>
+          <button id="sim-btn-reset" class="sim-btn sim-btn-reset"><i class="fa-solid fa-rotate-right"></i> Reset</button>
+          
+          <div class="speed-picker">
+            <span>Speed:</span>
+            <button class="btn-speed active" data-speed="1">1x</button>
+            <button class="btn-speed" data-speed="2">2x</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Case Simulator Grid -->
+      <div class="journey-grid">
+        
+        <!-- Column 1: Customer Chat View -->
+        <div class="card-glass chat-column">
+          <div class="card-header">
+            <div class="chat-user-info">
+              <div class="avatar"><i class="fa-solid fa-user"></i></div>
+              <div>
+                <h4>Customer Chat Session</h4>
+                <span class="sub-text">CUST123 • Session Token Authenticated</span>
+              </div>
+            </div>
+            <span class="badge badge-chat"><i class="fa-solid fa-circle"></i> Live Channel</span>
+          </div>
+
+          <div class="chat-messages-body" id="chat-messages">
+            <div class="chat-message user-msg">
+              <div class="sender">Customer (CUST123)</div>
+              <div class="bubble">"My ₹12,000 was debited, but the merchant didn't get it."</div>
+              <div class="timestamp">14:48:10 • App Ingress</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Column 2: System Facts Inspector -->
+        <div class="card-glass facts-column">
+          <div class="card-header">
+            <h4><i class="fa-solid fa-microchip"></i> System Fact Matrix & Evidence</h4>
+            <span class="badge badge-live">Verified Facts</span>
+          </div>
+
+          <div class="facts-grid">
+            <div class="fact-card" id="fact-txn">
+              <span class="fact-label">Transaction ID</span>
+              <span class="fact-val mono">TXN456</span>
+              <span class="fact-desc">Extracted from Customer Context</span>
+            </div>
+
+            <div class="fact-card" id="fact-debit">
+              <span class="fact-label">Account Debit</span>
+              <span class="fact-val status-green">SUCCESS (₹12,000)</span>
+              <span class="fact-desc">Verified from Ledger DB</span>
+            </div>
+
+            <div class="fact-card" id="fact-payment">
+              <span class="fact-label">Payment Gateway</span>
+              <span class="fact-val status-red">FAILED</span>
+              <span class="fact-desc">Merchant Switch Status</span>
+            </div>
+
+            <div class="fact-card" id="fact-merchant">
+              <span class="fact-label">Merchant Credit</span>
+              <span class="fact-val status-red">NOT RECEIVED</span>
+              <span class="fact-desc">Merchant Account Check</span>
+            </div>
+
+            <div class="fact-card fact-wide" id="fact-auth">
+              <span class="fact-label">Authorization & Ownership Check</span>
+              <span class="fact-val status-green"><i class="fa-solid fa-shield-check"></i> VERIFIED: TXN456 belongs to CUST123</span>
+              <span class="fact-desc">Preventing unauthorized third-party claims</span>
+            </div>
+
+            <div class="fact-card fact-wide" id="fact-policy">
+              <span class="fact-label">Policy Decision Gate</span>
+              <span class="fact-val status-amber" id="policy-gate-val">EVALUATING...</span>
+              <span class="fact-desc" id="policy-gate-desc">Checking idempotency & refund limits</span>
+            </div>
+
+            <div class="fact-card fact-wide code-card" id="fact-action">
+              <span class="fact-label">Controlled Action Execution</span>
+              <div class="code-box mono" id="action-code-box">// Waiting for policy gate approval...</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Column 3: Closed Loop Stage Progress Tracker -->
+        <div class="card-glass stage-column">
+          <div class="card-header">
+            <h4><i class="fa-solid fa-list-check"></i> Closed-Loop Stages</h4>
+            <span id="current-step-badge" class="badge badge-step">Step 1 / 6</span>
+          </div>
+
+          <div class="stages-timeline">
+            <div class="stage-step active" id="stage-1" data-step="1">
+              <div class="step-num">01</div>
+              <div class="step-info">
+                <h4>UNDERSTAND</h4>
+                <p>Intent parsing & contextual entity extraction</p>
+              </div>
+            </div>
+
+            <div class="stage-step" id="stage-2" data-step="2">
+              <div class="step-num">02</div>
+              <div class="step-info">
+                <h4>INVESTIGATE</h4>
+                <p>Gathering trusted facts from enterprise systems</p>
+              </div>
+            </div>
+
+            <div class="stage-step" id="stage-3" data-step="3">
+              <div class="step-num">03</div>
+              <div class="step-info">
+                <h4>DECIDE</h4>
+                <p>Reasoning over evidence with safety policies</p>
+              </div>
+            </div>
+
+            <div class="stage-step" id="stage-4" data-step="4">
+              <div class="step-num">04</div>
+              <div class="step-info">
+                <h4>ACT</h4>
+                <p>Executing policy-governed tool initiate_refund()</p>
+              </div>
+            </div>
+
+            <div class="stage-step" id="stage-5" data-step="5">
+              <div class="step-num">05</div>
+              <div class="step-info">
+                <h4>VERIFY</h4>
+                <p>Re-reading system state to confirm outcome</p>
+              </div>
+            </div>
+
+            <div class="stage-step" id="stage-6" data-step="6">
+              <div class="step-num">06</div>
+              <div class="step-info">
+                <h4>RESOLVE</h4>
+                <p>Delivering final verified outcome to customer</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Outcome Box -->
+          <div class="outcome-box" id="outcome-box">
+            <div class="outcome-icon"><i class="fa-solid fa-circle-notch fa-spin"></i></div>
+            <div class="outcome-text">
+              <h5>System Status</h5>
+              <p id="outcome-status-text">Ready to run scenario simulation.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 3. CLOSED LOOP PARADIGM SECTION -->
+    <section id="sec-closed-loop" class="section-block">
+      <div class="section-header-box">
+        <div class="title-group">
+          <h2>3. The Closed-Loop Paradigm vs. Traditional Chatbots</h2>
+          <p>Moving from conversational FAQs to autonomous end-to-end execution.</p>
+        </div>
+      </div>
+
+      <div class="paradigm-grid">
+        <!-- Traditional Chatbot Card -->
+        <div class="card-glass paradigm-card legacy-card">
+          <div class="card-badge badge-legacy">Traditional Chatbot (Open Loop)</div>
+          <h3>Conversational Information Desk</h3>
+          <p class="desc">Understands text, reads FAQs, but cannot execute or verify system actions.</p>
+          
+          <ul class="paradigm-list">
+            <li><i class="fa-solid fa-xmark color-red"></i> <b>Open Loop:</b> Answers & informs, then hands off to human agents.</li>
+            <li><i class="fa-solid fa-xmark color-red"></i> <b>System Hopping:</b> Agents manually check 4-5 admin dashboards.</li>
+            <li><i class="fa-solid fa-xmark color-red"></i> <b>Repeated Context:</b> Customer must re-explain issue at every step.</li>
+            <li><i class="fa-solid fa-xmark color-red"></i> <b>Delayed Resolution:</b> Takes 24 to 48 hours for workflow to close.</li>
+          </ul>
+
+          <div class="flow-mini">
+            <span class="flow-node">Understand</span> <i class="fa-solid fa-arrow-right"></i>
+            <span class="flow-node">Provide FAQ</span> <i class="fa-solid fa-arrow-right"></i>
+            <span class="flow-node node-escalate">Escalate to Human</span>
+          </div>
+        </div>
+
+        <!-- AxoraPay Card -->
+        <div class="card-glass paradigm-card resolve-card">
+          <div class="card-badge badge-resolve"><i class="fa-solid fa-circle-check"></i> AxoraPay (Closed Loop)</div>
+          <h3>Autonomous Resolution Teammate</h3>
+          <p class="desc">Owns the customer case from the first message to a verified enterprise outcome.</p>
+          
+          <ul class="paradigm-list">
+            <li><i class="fa-solid fa-check color-green"></i> <b>Closed Loop:</b> Investigates, acts, verifies, and resolves completely.</li>
+            <li><i class="fa-solid fa-check color-green"></i> <b>Unified Reasoning:</b> Connects LLM reasoning directly to controlled APIs.</li>
+            <li><i class="fa-solid fa-check color-green"></i> <b>Zero Context Loss:</b> Authenticated session persists state across tools.</li>
+            <li><i class="fa-solid fa-check color-green"></i> <b>Instant Resolution:</b> Complete issue resolution in under 30 seconds.</li>
+          </ul>
+
+          <div class="flow-mini flow-resolve">
+            <span class="flow-node">Understand</span> <i class="fa-solid fa-arrow-right"></i>
+            <span class="flow-node">Investigate</span> <i class="fa-solid fa-arrow-right"></i>
+            <span class="flow-node">Decide</span> <i class="fa-solid fa-arrow-right"></i>
+            <span class="flow-node">Act</span> <i class="fa-solid fa-arrow-right"></i>
+            <span class="flow-node">Verify</span> <i class="fa-solid fa-arrow-right"></i>
+            <span class="flow-node node-success">Resolved</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Autonomous Flywheel -->
+      <div class="card-glass flywheel-box">
+        <h3><i class="fa-solid fa-arrows-spin"></i> The Autonomous Value Flywheel</h3>
+        <div class="flywheel-grid">
+          <div class="fw-card">
+            <div class="fw-icon"><i class="fa-solid fa-database"></i></div>
+            <h4>1. More Context</h4>
+            <p>Direct integration with authenticated user session & ledger telemetry.</p>
+          </div>
+          <div class="fw-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+          <div class="fw-card">
+            <div class="fw-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+            <h4>2. Better Investigation</h4>
+            <p>LLM reasoning inspects multi-system state & audit trails automatically.</p>
+          </div>
+          <div class="fw-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+          <div class="fw-card">
+            <div class="fw-icon"><i class="fa-solid fa-bolt-lightning"></i></div>
+            <h4>3. Faster Resolution</h4>
+            <p>Policy-governed actions execute instantly without human queue delays.</p>
+          </div>
+          <div class="fw-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+          <div class="fw-card">
+            <div class="fw-icon"><i class="fa-solid fa-heart-circle-check"></i></div>
+            <h4>4. Lower Human Effort</h4>
+            <p>Human support teams focus only on complex edge cases & policy exceptions.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. IMPACT & ROI CALCULATOR SECTION -->
+    <section id="sec-impact" class="section-block">
+      <div class="section-header-box">
+        <div class="title-group">
+          <h2>4. Business Impact & Interactive ROI Engine</h2>
+          <p>Measure resolution, not conversation: Calculate autonomous efficiency gains at scale.</p>
+        </div>
+      </div>
+
+      <div class="impact-grid">
+        <!-- Interactive Sliders -->
+        <div class="card-glass roi-calculator">
+          <h3><i class="fa-solid fa-sliders"></i> Interactive ROI Simulator</h3>
+          
+          <div class="slider-group">
+            <div class="slider-header">
+              <label for="range-volume">Monthly Support Case Volume</label>
+              <span id="val-volume" class="slider-val">100,000 cases</span>
+            </div>
+            <input type="range" id="range-volume" min="10000" max="1000000" step="10000" value="100000">
+          </div>
+
+          <div class="slider-group">
+            <div class="slider-header">
+              <label for="range-autonomy">Target Autonomous Resolution Rate (%)</label>
+              <span id="val-autonomy" class="slider-val">65%</span>
+            </div>
+            <input type="range" id="range-autonomy" min="10" max="95" step="5" value="65">
+          </div>
+
+          <div class="slider-group">
+            <div class="slider-header">
+              <label for="range-cost">Avg Human Cost per Resolution (₹)</label>
+              <span id="val-cost" class="slider-val">₹45 / case</span>
+            </div>
+            <input type="range" id="range-cost" min="15" max="150" step="5" value="45">
+          </div>
+
+          <div class="calculator-result-summary">
+            <div class="calc-box">
+              <span class="calc-label">Estimated Monthly Savings</span>
+              <span id="res-savings" class="calc-val color-green">₹29,25,000</span>
+            </div>
+            <div class="calc-box">
+              <span class="calc-label">Agent Hours Saved / Month</span>
+              <span id="res-hours" class="calc-val color-cyan">10,833 hrs</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- North Star Metrics Cards -->
+        <div class="metrics-display-grid">
+          <div class="card-glass metric-card dark-card">
+            <span class="metric-kicker">NORTH STAR METRIC</span>
+            <div class="metric-big color-green" id="metric-resolution-rate">65.0%</div>
+            <div class="metric-title">Autonomous Resolution Rate</div>
+            <div class="metric-sub">% of eligible customer complaints completely resolved without human intervention.</div>
+          </div>
+
+          <div class="metrics-quad">
+            <div class="card-glass metric-small">
+              <div class="metric-val color-cyan"><i class="fa-solid fa-clock-rotate-left"></i> 28s</div>
+              <div class="metric-lbl">Avg Resolution Time</div>
+              <div class="metric-sub">Down from 24 hours</div>
+            </div>
+
+            <div class="card-glass metric-small">
+              <div class="metric-val color-green"><i class="fa-solid fa-bullseye"></i> 92%</div>
+              <div class="metric-lbl">First Contact Resolution</div>
+              <div class="metric-sub">No follow-ups required</div>
+            </div>
+
+            <div class="card-glass metric-small">
+              <div class="metric-val color-cyan"><i class="fa-solid fa-arrow-trend-down"></i> -84%</div>
+              <div class="metric-lbl">Reopen Rate</div>
+              <div class="metric-sub">Verified system updates</div>
+            </div>
+
+            <div class="card-glass metric-small">
+              <div class="metric-val color-amber"><i class="fa-solid fa-hand-holding-dollar"></i> -70%</div>
+              <div class="metric-lbl">Cost per Resolution</div>
+              <div class="metric-sub">Operational efficiency</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. GOVERNANCE & SAFETY SECTION -->
+    <section id="sec-governance" class="section-block">
+      <div class="section-header-box">
+        <div class="title-group">
+          <h2>5. Governance & Safety Framework</h2>
+          <p>The LLM is the reasoning brain — not the bank. Strict policy controls govern every action.</p>
+        </div>
+      </div>
+
+      <!-- Critical Principle Banner -->
+      <div class="banner-critical">
+        <div class="banner-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+        <div class="banner-text">
+          <h3>CORE SECURITY PRINCIPLE</h3>
+          <p>"Transaction ID identifies a transaction. <b>It does not prove authorization.</b> AxoraPay explicitly verifies session ownership before executing any policy tool."</p>
+        </div>
+      </div>
+
+      <!-- Governance Columns -->
+      <div class="governance-grid">
+        <div class="card-glass gov-card">
+          <div class="gov-icon"><i class="fa-solid fa-brain"></i></div>
+          <h3>LLM = Reasoning</h3>
+          <p>Understands customer intent, selects appropriate tools, synthesizes evidence, and constructs natural explanations.</p>
+        </div>
+
+        <div class="card-glass gov-card">
+          <div class="gov-icon"><i class="fa-solid fa-database"></i></div>
+          <h3>Systems = Truth</h3>
+          <p>Enterprise core databases, payment switches, and ledgers remain the immutable source of ground truth.</p>
+        </div>
+
+        <div class="card-glass gov-card">
+          <div class="gov-icon"><i class="fa-solid fa-gavel"></i></div>
+          <h3>Policy = Authority</h3>
+          <p>Hardcoded risk rules, authorization matrices, idempotency checks, and refund limits dictate action eligibility.</p>
+        </div>
+
+        <div class="card-glass gov-card">
+          <div class="gov-icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+          <h3>Tools = Action</h3>
+          <p>Explicit, strictly-typed tool calls (`initiate_refund()`) act through rate-limited enterprise action gateways.</p>
+        </div>
+
+        <div class="card-glass gov-card">
+          <div class="gov-icon"><i class="fa-solid fa-shield-check"></i></div>
+          <h3>Verification = Safety</h3>
+          <p>Re-reading post-action system state confirms success before notifying customer. Complete audit logging on every turn.</p>
+        </div>
+      </div>
+
+      <!-- Interactive Safety Controls Matrix -->
+      <div class="card-glass safety-matrix-box">
+        <h3><i class="fa-solid fa-vault"></i> Enterprise Safety Gates</h3>
+        <div class="safety-grid">
+          <div class="safety-item">
+            <span class="safety-badge badge-green">Passed</span>
+            <h4>Session Ownership</h4>
+            <p>Matches authenticated `CUST123` with transaction owner.</p>
+          </div>
+
+          <div class="safety-item">
+            <span class="safety-badge badge-green">Passed</span>
+            <h4>Idempotency Token</h4>
+            <p>Prevents double refund execution on retry attempts.</p>
+          </div>
+
+          <div class="safety-item">
+            <span class="safety-badge badge-green">Passed</span>
+            <h4>Amount Cap</h4>
+            <p>Automated refund limit check (Max ₹25,000 per policy).</p>
+          </div>
+
+          <div class="safety-item">
+            <span class="safety-badge badge-green">Passed</span>
+            <h4>Immutable Audit Log</h4>
+            <p>Every reasoning step and tool response logged to security telemetry.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. HACKATHON MVP & ENTERPRISE SCALING ROADMAP SECTION -->
+    <section id="sec-roadmap" class="section-block">
+      
+      <div class="section-header-box">
+        <div class="title-group">
+          <h2>6. Hackathon MVP & Enterprise Scaling Horizon</h2>
+          <p>Starting with focused high-frequency payment complaints, scaling into an enterprise-wide autonomous resolution layer.</p>
+        </div>
+      </div>
+
+      <!-- Detailed Roadmap Grid -->
+      <div class="roadmap-detailed-wrapper">
+
+        <!-- PART A: HACKATHON MVP DETAILS -->
+        <div class="card-glass mvp-deepdive-card">
+          <div class="card-header">
+            <div>
+              <span class="badge badge-live" style="margin-bottom: 4px;"><i class="fa-solid fa-code"></i> HACKATHON MVP PROTOTYPE</span>
+              <h3>High-Frequency Payment Complaint Resolution Core</h3>
+            </div>
+            <span class="badge badge-paytm">Track T3 Scope</span>
+          </div>
+
+          <p class="mvp-summary-text">
+            The Hackathon MVP proves end-to-end autonomous resolution for Paytm's most frequent transaction friction point: <b>Failed payment transfers after account debit</b>. It operates through simulated core APIs while maintaining strict production-grade security boundaries.
+          </p>
+
+          <!-- MVP 4 Demo Use Cases Detailed Grid -->
+          <h4 class="roadmap-sub-title"><i class="fa-solid fa-vial"></i> 4 Implemented Demo Use Cases:</h4>
+          
+          <div class="usecase-grid">
+            
+            <div class="usecase-card">
+              <div class="usecase-header">
+                <span class="uc-num">01</span>
+                <h4>Failed Payment After Debit</h4>
+                <span class="uc-badge badge-green">Auto-Refund</span>
+              </div>
+              <p class="uc-trigger"><b>Trigger:</b> Customer debited ₹12,000; merchant received ₹0.</p>
+              <div class="uc-flow mono">
+                Read Txn DB → Auth Check → Policy #402 Pass → initiate_refund() → Verify State → Resolved in 13s
+              </div>
+            </div>
+
+            <div class="usecase-card">
+              <div class="usecase-header">
+                <span class="uc-num">02</span>
+                <h4>Pending Refund Inquiry</h4>
+                <span class="uc-badge badge-cyan">Status Lookup</span>
+              </div>
+              <p class="uc-trigger"><b>Trigger:</b> "Where is my ₹3,500 refund for TXN789?"</p>
+              <div class="uc-flow mono">
+                Read Refund Gateway → Bank Processing State → Provide Verified Bank ARN & ETA → Complete
+              </div>
+            </div>
+
+            <div class="usecase-card">
+              <div class="usecase-header">
+                <span class="uc-num">03</span>
+                <h4>Duplicate Charge Detection</h4>
+                <span class="uc-badge badge-cyan">Reversal Workflow</span>
+              </div>
+              <p class="uc-trigger"><b>Trigger:</b> "Charged twice for single UPI transaction."</p>
+              <div class="uc-flow mono">
+                Query Txn DB → Match Timestamp/Amount/Merchant → Initiate Reversal Token → Verify Credit
+              </div>
+            </div>
+
+            <div class="usecase-card">
+              <div class="usecase-header">
+                <span class="uc-num">04</span>
+                <h4>High-Risk Exception</h4>
+                <span class="uc-badge badge-amber">Human Escalation</span>
+              </div>
+              <p class="uc-trigger"><b>Trigger:</b> Refund > ₹25,000 cap or unverified session token.</p>
+              <div class="uc-flow mono">
+                Policy Engine: DENY/ESCALATE → Generate Context Packet → Hand-off to Human Agent Queue
+              </div>
+            </div>
+
+          </div>
+
+          <!-- MVP Execution Pipeline Bar -->
+          <div class="mvp-pipeline-bar">
+            <span class="pipe-step">Customer Chat Ingress</span>
+            <i class="fa-solid fa-arrow-right"></i>
+            <span class="pipe-step pipe-highlight">Session Auth Check</span>
+            <i class="fa-solid fa-arrow-right"></i>
+            <span class="pipe-step pipe-highlight">AxoraPay Agent Reasoning</span>
+            <i class="fa-solid fa-arrow-right"></i>
+            <span class="pipe-step pipe-warn">Policy Engine Authority</span>
+            <i class="fa-solid fa-arrow-right"></i>
+            <span class="pipe-step pipe-highlight">Action Gateway</span>
+            <i class="fa-solid fa-arrow-right"></i>
+            <span class="pipe-step pipe-success">State Verification</span>
+          </div>
+
+        </div>
+
+        <!-- PART B: ENTERPRISE SCALING HORIZON (4 PHASES) -->
+        <div class="card-glass horizon-deepdive-card" style="margin-top: 24px;">
+          <div class="card-header">
+            <div>
+              <span class="badge phase-badge" style="margin-bottom: 4px;"><i class="fa-solid fa-chart-line-up"></i> ENTERPRISE SCALING HORIZON</span>
+              <h3>Phased Expansion into Full Enterprise Autonomous Resolution Layer</h3>
+            </div>
+          </div>
+
+          <div class="phases-grid">
+            
+            <!-- Phase 1 -->
+            <div class="phase-card">
+              <div class="phase-badge">PHASE 1 (Q1 - Q2)</div>
+              <h4>Vertical Support Expansion</h4>
+              <ul class="phase-list">
+                <li><b>Merchant Support Teammate:</b> Autonomous settlement reconciliation, chargeback dispute verification, Soundbox payout issues.</li>
+                <li><b>Financial Services Teammate:</b> Paytm Postpaid billing inquiries, Fastag auto-recharge failures, Personal Loan EMI checks.</li>
+                <li><b>Travel & Ticketing:</b> Flight/Train cancellation refund status, PNR verification, instant auto-refund processing.</li>
+              </ul>
+            </div>
+
+            <!-- Phase 2 -->
+            <div class="phase-card">
+              <div class="phase-badge">PHASE 2 (Q2 - Q3)</div>
+              <h4>Multimodal & Omnichannel Ingress</h4>
+              <ul class="phase-list">
+                <li><b>Autonomous Voice Agent:</b> Real-time low-latency voice resolution in 11 Indian languages (Hindi, Tamil, Telugu, Marathi, etc.).</li>
+                <li><b>Omnichannel Deployment:</b> Paytm App, WhatsApp Business API, IVR phone line, and Merchant Dashboard integration.</li>
+                <li><b>SDK Integration:</b> Embeddable AxoraPay widget for third-party Paytm merchant apps.</li>
+              </ul>
+            </div>
+
+            <!-- Phase 3 -->
+            <div class="phase-card">
+              <div class="phase-badge">PHASE 3 (Q3 - Q4)</div>
+              <h4>Proactive & Predictive Resolution Engine</h4>
+              <ul class="phase-list">
+                <li><b>Proactive Anomaly Detection:</b> Detect failed UPI transfers or bank gateway timeouts in real-time telemetry *before* ticket creation.</li>
+                <li><b>Auto-Triggered Refund Loops:</b> Automatically initiate wallet refund and send proactive push notification: <i>"We noticed your transfer timed out. We credited ₹500 back to your wallet."</i></li>
+                <li><b>Pre-Emptive Customer Care:</b> Zero-contact issue resolution.</li>
+              </ul>
+            </div>
+
+            <!-- Phase 4 -->
+            <div class="phase-card">
+              <div class="phase-badge">PHASE 4 (YEAR 2+)</div>
+              <h4>Multi-Agent Autonomous Mesh</h4>
+              <ul class="phase-list">
+                <li><b>Multi-Agent Orchestration Mesh:</b> Dedicated domain agents (<i>Payment Agent</i>, <i>Fraud Agent</i>, <i>Merchant Agent</i>) coordinated by a Master Orchestrator.</li>
+                <li><b>Continuous RL Policy Tuning:</b> Automated policy threshold optimization based on historical audit telemetry and risk models.</li>
+                <li><b>Enterprise SLA:</b> 95%+ Autonomous Resolution Rate with 0% unauthorized execution error rate.</li>
+              </ul>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- App Footer -->
+  <footer class="app-footer">
+    <div class="footer-container">
+      <div class="footer-left">
+        <span class="footer-brand">Resolve<span class="highlight">AI</span></span>
+        <span class="footer-copy">Don't just answer. <b>Resolve.</b></span>
+      </div>
+      <div class="footer-center mono">
+        AI REASONS • SYSTEMS VERIFY • POLICIES AUTHORIZE • AGENTS ACT
+      </div>
+      <div class="footer-right">
+        <span class="badge badge-paytm">Paytm AI Hackathon 2026</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
